@@ -378,17 +378,25 @@
 
 </footer>
 
+<script type="module">
 
+import {
+    collection,
+    getDocs,
+    query,
+    where
+} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 
-<script>
+import { db } from "./firebase.js";
+
 
 async function loadDashboard() {
 
     const student =
         localStorage.getItem("campusStudent") || "Student";
 
-    document.getElementById("studentName")
-        .textContent = student;
+    document.getElementById("studentName").textContent = student;
+
 
     try {
 
@@ -411,12 +419,14 @@ async function loadDashboard() {
         const eventContainer =
             document.getElementById("myEvents");
 
+
         if (events.length === 0) {
 
             eventContainer.innerHTML = `
                 <div class="empty-state">
                     📅
                     <p>No events registered yet.</p>
+
                     <a href="index.html#events">
                         Explore Events →
                     </a>
@@ -435,6 +445,7 @@ async function loadDashboard() {
 
                         <div>
                             <strong>${event}</strong>
+
                             <small>
                                 Registration confirmed
                             </small>
@@ -444,6 +455,7 @@ async function loadDashboard() {
 
                     </div>
                 `).join("");
+
         }
 
     } catch (error) {
@@ -454,7 +466,8 @@ async function loadDashboard() {
 
     }
 
-      
+}
+
 
 function showDashboardError() {
 
@@ -463,38 +476,41 @@ function showDashboardError() {
 
     eventContainer.innerHTML = `
         <div class="empty-state">
+
             ⚠️
-            <p>Unable to load events from Firebase.</p>
+
+            <p>
+                Unable to load events from Firebase.
+            </p>
+
             <a href="index.html#events">
                 Back to Events →
             </a>
+
         </div>
     `;
+
 }
+
+
 function logoutStudent() {
 
-    localStorage.removeItem(
-        "campusStudent"
-    );
+    localStorage.removeItem("campusStudent");
 
-    window.location.href =
-        "index.html";
+    window.location.href = "index.html";
 
 }
+
+
+window.logoutStudent = logoutStudent;
 
 
 loadDashboard();
 
-<script type="module">
-
-import { collection, getDocs, query, where }
-from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
-
-import { db } from "./firebase.js";
-
-function loadDashboard() {
+</script>
 
 
 </body>
 
 </html>
+
