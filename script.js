@@ -277,6 +277,26 @@ window.addEventListener("load", function() {
     }
 
 });
+function openLogin() {
+    document.getElementById("loginModal").style.display = "flex";
+}
+
+function closeLogin() {
+    document.getElementById("loginModal").style.display = "none";
+}
+
+function submitFeedback() {
+    const feedback = document.getElementById("feedback").value.trim();
+
+    if (feedback === "") {
+        showToast("⚠️ Please write your feedback first.");
+        return;
+    }
+
+    showToast("✅ Thank you for your feedback!");
+
+    document.getElementById("feedback").value = "";
+}
 window.registerEvent = registerEvent;
 
 window.openLogin = openLogin;
