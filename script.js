@@ -278,3 +278,8 @@ window.addEventListener("load", function() {
 
 });
 window.registerEvent = registerEvent;
+
+window.openLogin = openLogin;
+window.closeLogin = closeLogin;
+window.loginStudent = loginStudent;
+window.submitFeedback = submitFeedback;
