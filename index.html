@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CampusConnect | Your Campus. Your Community.</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <div class="logo">
+        <div class="logo-box">CC</div>
+        <div>
+            <strong>Campus<span>Connect</span></strong>
+            <small>Student Community Hub</small>
+        </div>
+    </div>
+
+    <nav>
+        <a hre="#home">Home</a>
+        <a href="#events">Events</a>
+        <a href="#clubs">Clubs</a>
+        <a href="#campus">Campus</a>
+        <a href="#announcements">Updates</a>
+    </nav>
+
+    <button class="login-button" onclick="openLogin()">
+        Sign In
+    </button>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section id="home" class="hero">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            ✨ ONE CAMPUS. ENDLESS POSSIBILITIES.
+        </div>
+
+        <h1>
+            Your campus life,
+            <span>connected.</span>
+        </h1>
+
+        <p>
+            Discover events, join student communities, explore opportunities
+            and stay connected with everything happening on campus.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#events" class="primary-button">
+                Explore Events →
+            </a>
+
+            <a href="#clubs" class="outline-button">
+                Discover Clubs
+            </a>
+
+        </div>
+
+        <div class="hero-stats">
+
+            <div>
+                <strong>1,200+</strong>
+                <span>Students</span>
+            </div>
+
+            <div>
+                <strong>24</strong>
+                <span>Events</span>
+            </div>
+
+            <div>
+                <strong>18</strong>
+                <span>Clubs</span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-visual">
+
+        <div class="floating-card top-card">
+            <span>🔥</span>
+            <div>
+                <strong>Hackathon 2026</strong>
+                <small>Registration open</small>
+            </div>
+        </div>
+
+        <div class="campus-circle">
+
+            <div class="circle-icon">🎓</div>
+
+            <h3>CampusConnect</h3>
+
+            <p>
+                Connect with your campus community
+            </p>
+
+            <div class="mini-stats">
+                <span>● 340 Online</span>
+                <span>● 24 Events</span>
+            </div>
+
+        </div>
+
+        <div class="floating-card bottom-card">
+            <span>🎉</span>
+            <div>
+                <strong>12 new events</strong>
+                <small>this month</small>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= QUICK ACCESS ================= -->
+
+<section class="quick-section">
+
+    <div class="quick-card">
+        <div class="quick-icon purple">📅</div>
+        <div>
+            <strong>Upcoming Events</strong>
+            <p>Find what's happening</p>
+        </div>
+        <a href="#events">→</a>
+    </div>
+
+    <div class="quick-card">
+        <div class="quick-icon blue">👥</div>
+        <div>
+            <strong>Student Clubs</strong>
+            <p>Find your community</p>
+        </div>
+        <a href="#clubs">→</a>
+    </div>
+
+    <div class="quick-card">
+        <div class="quick-icon green">📢</div>
+        <div>
+            <strong>Announcements</strong>
+            <p>Stay informed</p>
+        </div>
+        <a href="#announcements">→</a>
+    </div>
+
+    <div class="quick-card">
+        <div class="quick-icon orange">📍</div>
+        <div>
+            <strong>Campus Places</strong>
+            <p>Explore your campus</p>
+        </div>
+        <a href="#campus">→</a>
+    </div>
+
+</section>
+
+
+<!-- ================= EVENTS ================= -->
+
+<section id="events" class="section">
+
+    <div class="section-header">
+
+        <div>
+            <div class="section-label">DISCOVER & PARTICIPATE</div>
+            <h2>Upcoming Events</h2>
+            <p>Find events that match your interests.</p>
+        </div>
+
+        <input
+            type="text"
+            id="eventSearch"
+            class="search-box"
+            placeholder="🔎 Search events..."
+            onkeyup="filterEvents()"
+        >
+
+    </div>
+
+
+    <div class="filter-buttons">
+
+        <button class="filter active" onclick="filterCategory('all', this)">
+            All
+        </button>
+
+        <button class="filter" onclick="filterCategory('tech', this)">
+            💻 Technology
+        </button>
+
+        <button class="filter" onclick="filterCategory('culture', this)">
+            🎭 Culture
+        </button>
+
+        <button class="filter" onclick="filterCategory('career', this)">
+            💼 Career
+        </button>
+
+        <button class="filter" onclick="filterCategory('sports', this)">
+            ⚽ Sports
+        </button>
+
+    </div>
+
+
+    <div class="event-grid" id="eventGrid">
+
+        <article class="event-card" data-category="tech">
+
+            <div class="event-top">
+
+                <div class="date-box">
+                    <strong>12</strong>
+                    <span>SEP</span>
+                </div>
+
+                <span class="event-category tech-tag">
+                    TECHNOLOGY
+                </span>
+
+            </div>
+
+            <h3>Innovation & Tech Fest</h3>
+
+            <p>
+                Showcase innovative ideas, prototypes and technology projects.
+            </p>
+
+            <div class="event-details">
+                <span>📍 Main Auditorium</span>
+                <span>🕙 10:00 AM</span>
+            </div>
+
+            <button onclick="registerEvent('Innovation & Tech Fest')">
+                Register →
+            </button>
+
+        </article>
+
+
+        <article class="event-card" data-category="culture">
+
+            <div class="event-top">
+
+                <div class="date-box">
+                    <strong>18</strong>
+                    <span>SEP</span>
+                </div>
+
+                <span class="event-category culture-tag">
+                    CULTURE
+                </span>
+
+            </div>
+
+            <h3>Campus Cultural Night</h3>
+
+            <p>
+                Music, dance, art and amazing performances by students.
+            </p>
+
+            <div class="event-details">
+                <span>📍 Open Air Stage</span>
+                <span>🕕 6:00 PM</span>
+            </div>
+
+            <button onclick="registerEvent('Campus Cultural Night')">
+                Register →
+            </button>
+
+        </article>
+
+
+        <article class="event-card" data-category="career">
+
+            <div class="event-top">
+
+                <div class="date-box">
+                    <strong>25</strong>
+                    <span>SEP</span>
+                </div>
+
+                <span class="event-category career-tag">
+                    CAREER
+                </span>
+
+            </div>
+
+            <h3>Career Connect 2026</h3>
+
+            <p>
+                Meet professionals and discover exciting career opportunities.
+            </p>
+
+            <div class="event-details">
+                <span>📍 Seminar Hall</span>
+                <span>🕚 11:00 AM</span>
+            </div>
+
+            <button onclick="registerEvent('Career Connect 2026')">
+                Register →
+            </button>
+
+        </article>
+
+
+        <article class="event-card" data-category="sports">
+
+            <div class="event-top">
+
+                <div class="date-box">
+                    <strong>30</strong>
+                    <span>SEP</span>
+                </div>
+
+                <span class="event-category sports-tag">
+                    SPORTS
+                </span>
+
+            </div>
+
+            <h3>Inter College Sports Meet</h3>
+
+            <p>
+                Compete, collaborate and represent your college with pride.
+            </p>
+
+            <div class="event-details">
+                <span>📍 Sports Complex</span>
+                <span>🕘 9:00 AM</span>
+            </div>
+
+            <button onclick="registerEvent('Inter College Sports Meet')">
+                Register →
+            </button>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CLUBS ================= -->
+
+<section id="clubs" class="section clubs-section">
+
+    <div class="section-header centered">
+
+        <div class="section-label">FIND YOUR COMMUNITY</div>
+
+        <h2>Student Clubs</h2>
+
+        <p>
+            Connect with people who share your interests.
+        </p>
+
+    </div>
+
+
+    <div class="club-grid">
+
+        <article class="club-card">
+
+            <div class="club-icon">💻</div>
+
+            <span>TECHNOLOGY</span>
+
+            <h3>CodeCraft</h3>
+
+            <p>
+                Coding, AI, web development and problem solving.
+            </p>
+
+            <div class="club-footer">
+                <small>👥 186 members</small>
+                <button onclick="joinClub('CodeCraft')">
+                    Join
+                </button>
+            </div>
+
+        </article>
+
+
+        <article class="club-card">
+
+            <div class="club-icon">🤖</div>
+
+            <span>INNOVATION</span>
+
+            <h3>RoboTech</h3>
+
+            <p>
+                Robotics, electronics and exciting innovations.
+            </p>
+
+            <div class="club-footer">
+                <small>👥 124 members</small>
+                <button onclick="joinClub('RoboTech')">
+                    Join
+                </button>
+            </div>
+
+        </article>
+
+
+        <article class="club-card">
+
+            <div class="club-icon">📸</div>
+
+            <span>CREATIVE</span>
+
+            <h3>FrameWorks</h3>
+
+            <p>
+                Photography, filmmaking and visual storytelling.
+            </p>
+
+            <div class="club-footer">
+                <small>👥 92 members</small>
+                <button onclick="joinClub('FrameWorks')">
+                    Join
+                </button>
+            </div>
+
+        </article>
+
+
+        <article class="club-card">
+
+            <div class="club-icon">🎤</div>
+
+            <span>PERFORMING ARTS</span>
+
+            <h3>StageCraft</h3>
+
+            <p>
+                Music, drama, dance and public speaking.
+            </p>
+
+            <div class="club-footer">
+                <small>👥 145 members</small>
+                <button onclick="joinClub('StageCraft')">
+                    Join
+                </button>
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CAMPUS ================= -->
+
+<section id="campus" class="section campus-section">
+
+    <div class="section-header">
+
+        <div>
+            <div class="section-label">EXPLORE YOUR CAMPUS</div>
+            <h2>Campus Directory</h2>
+            <p>Find important places around your campus.</p>
+        </div>
+
+    </div>
+
+
+    <div class="campus-layout">
+
+        <div class="campus-map">
+
+            <div class="map-title">
+                <span>📍</span>
+                Interactive Campus Map
+            </div>
+
+            <div class="map-building library">
+                📚
+                <span>Library</span>
+            </div>
+
+            <div class="map-building lab">
+                💻
+                <span>Innovation Lab</span>
+            </div>
+
+            <div class="map-building auditorium">
+                🎭
+                <span>Auditorium</span>
+            </div>
+
+            <div class="map-building cafe">
+                ☕
+                <span>Cafeteria</span>
+            </div>
+
+            <div class="map-building sports">
+                ⚽
+                <span>Sports Complex</span>
+            </div>
+
+        </div>
+
+
+        <div class="place-list">
+
+            <div class="place-item">
+                <div>📚</div>
+                <section>
+                    <strong>Central Library</strong>
+                    <p>Study & research · Open until 9 PM</p>
+                </section>
+                <span>›</span>
+            </div>
+
+            <div class="place-item">
+                <div>💻</div>
+                <section>
+                    <strong>Innovation Lab</strong>
+                    <p>Projects & workshops · Block B</p>
+                </section>
+                <span>›</span>
+            </div>
+
+            <div class="place-item">
+                <div>☕</div>
+                <section>
+                    <strong>Student Cafeteria</strong>
+                    <p>Food & refreshments · Ground Floor</p>
+                </section>
+                <span>›</span>
+            </div>
+
+            <div class="place-item">
+                <div>⚽</div>
+                <section>
+                    <strong>Sports Complex</strong>
+                    <p>Indoor & outdoor facilities</p>
+                </section>
+                <span>›</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ANNOUNCEMENTS ================= -->
+
+<section id="announcements" class="section">
+
+    <div class="section-header">
+
+        <div>
+            <div class="section-label">STAY UPDATED</div>
+            <h2>Latest Announcements</h2>
+        </div>
+
+        <button class="view-all" onclick="showToast('All announcements are up to date!')">
+            View All →
+        </button>
+
+    </div>
+
+
+    <div class="announcement-grid">
+
+        <article class="announcement important">
+
+            <span class="announcement-icon">📢</span>
+
+            <div>
+                <small>IMPORTANT · 2 HOURS AGO</small>
+                <h3>Hackathon registrations are now open</h3>
+                <p>
+                    Form your team and register before September 8.
+                </p>
+            </div>
+
+        </article>
+
+
+        <article class="announcement">
+
+            <span class="announcement-icon">📚</span>
+
+            <div>
+                <small>ACADEMICS · TODAY</small>
+                <h3>Library timings extended</h3>
+                <p>
+                    The central library will remain open until 9 PM.
+                </p>
+            </div>
+
+        </article>
+
+
+        <article class="announcement">
+
+            <span class="announcement-icon">🏆</span>
+
+            <div>
+                <small>SPORTS · YESTERDAY</small>
+                <h3>Sports meet applications open</h3>
+                <p>
+                    Submit your applications through the sports club.
+                </p>
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FEEDBACK ================= -->
+
+<section class="feedback-section">
+
+    <div>
+
+        <div class="section-label">YOUR VOICE MATTERS</div>
+
+        <h2>Help us improve CampusConnect.</h2>
+
+        <p>
+            Have an idea or suggestion? Share your feedback with us.
+        </p>
+
+    </div>
+
+
+    <div class="feedback-box">
+
+        <textarea
+            id="feedback"
+            placeholder="Write your feedback or suggestion..."
+        ></textarea>
+
+        <button onclick="submitFeedback()">
+            Send Feedback →
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-brand">
+
+        <div class="logo">
+            <div class="logo-box">CC</div>
+
+            <div>
+                <strong>Campus<span>Connect</span></strong>
+                <small>Student Community Hub</small>
+            </div>
+        </div>
+
+        <p>
+            Connecting students with people, events,
+            opportunities and campus life.
+        </p>
+
+    </div>
+
+
+    <div class="footer-column">
+
+        <h4>Explore</h4>
+
+        <a href="#events">Events</a>
+        <a href="#clubs">Clubs</a>
+        <a href="#campus">Campus</a>
+        <a href="#announcements">Announcements</a>
+
+    </div>
+
+
+    <div class="footer-column">
+
+        <h4>Support</h4>
+
+        <a href="#">Help Center</a>
+        <a href="#">Student Support</a>
+        <a href="#">Feedback</a>
+        <a href="#">Contact Us</a>
+
+    </div>
+
+
+    <div class="footer-column">
+
+        <h4>Contact</h4>
+
+        <p>campusconnect@example.com</p>
+        <p>Student Support Desk</p>
+
+    </div>
+
+
+    <div class="copyright">
+        © 2026 CampusConnect · Student Website Project
+    </div>
+
+</footer>
+
+
+<!-- ================= LOGIN MODAL ================= -->
+
+<div id="loginModal" class="modal">
+
+    <div class="login-card">
+
+        <button class="close-button" onclick="closeLogin()">×</button>
+
+        <div class="login-icon">🎓</div>
+
+        <h2>Welcome Back!</h2>
+
+        <p>Sign in to your CampusConnect account.</p>
+
+        <input
+            id="studentName"
+            type="text"
+            placeholder="Your name"
+        >
+
+        <input
+            id="studentEmail"
+            type="email"
+            placeholder="College email"
+        >
+
+        <button onclick="loginStudent()" class="login-submit">
+            Sign In
+        </button>
+
+        <small>
+            Demo login for student project
+        </small>
+
+    </div>
+
+</div>
+
+
+<!-- ================= TOAST ================= -->
+
+<div id="toast" class="toast"></div>
+
+
+<script type="module" src="script.js"></script>
+<script type="module" src="firebase.js"></script>
+
+</body>
+</html>

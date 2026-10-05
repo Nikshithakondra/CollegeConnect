@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>CampusConnect | Student Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">
+
+        <div class="logo-box">
+            CC
+        </div>
+
+        <div>
+
+            <strong>
+                Campus<span>Connect</span>
+            </strong>
+
+            <small>
+                Student Community Hub
+            </small>
+
+        </div>
+
+    </div>
+
+
+    <nav>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="index.html#events">
+            Events
+        </a>
+
+        <a href="index.html#clubs">
+            Clubs
+        </a>
+
+        <a href="index.html#campus">
+            Campus
+        </a>
+
+    </nav>
+
+
+    <button
+        class="login-button"
+        onclick="logoutStudent()">
+
+        Logout
+
+    </button>
+
+</header>
+
+
+
+<main class="dashboard">
+
+    <section class="dashboard-welcome">
+
+        <div>
+
+            <div class="section-label">
+                STUDENT DASHBOARD
+            </div>
+
+            <h1>
+                Welcome back,
+                <span id="studentName">
+                    Student
+                </span> 👋
+            </h1>
+
+            <p>
+                Here's what's happening around your campus.
+            </p>
+
+        </div>
+
+
+        <div class="profile-circle">
+            🎓
+        </div>
+
+    </section>
+
+
+
+    <!-- STAT CARDS -->
+
+    <section class="dashboard-stats">
+
+        <div class="dashboard-stat">
+
+            <span>📅</span>
+
+            <div>
+
+                <small>
+                    Registered Events
+                </small>
+
+                <strong id="eventCount">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="dashboard-stat">
+
+            <span>👥</span>
+
+            <div>
+
+                <small>
+                    Joined Clubs
+                </small>
+
+                <strong id="clubCount">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="dashboard-stat">
+
+            <span>📢</span>
+
+            <div>
+
+                <small>
+                    Notifications
+                </small>
+
+                <strong>
+                    3
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="dashboard-stat">
+
+            <span>⭐</span>
+
+            <div>
+
+                <small>
+                    Campus Points
+                </small>
+
+                <strong>
+                    120
+                </strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- DASHBOARD CONTENT -->
+
+    <section class="dashboard-grid">
+
+
+        <!-- EVENTS -->
+
+        <div class="dashboard-panel">
+
+            <div class="panel-header">
+
+                <div>
+
+                    <h2>
+                        My Events
+                    </h2>
+
+                    <p>
+                        Events you registered for
+                    </p>
+
+                </div>
+
+                <a href="index.html#events">
+                    Explore →
+                </a>
+
+            </div>
+
+
+            <div id="myEvents"
+                 class="dashboard-list">
+
+            </div>
+
+        </div>
+
+
+
+        <!-- CLUBS -->
+
+        <div class="dashboard-panel">
+
+            <div class="panel-header">
+
+                <div>
+
+                    <h2>
+                        My Clubs
+                    </h2>
+
+                    <p>
+                        Communities you've joined
+                    </p>
+
+                </div>
+
+                <a href="index.html#clubs">
+                    Explore →
+                </a>
+
+            </div>
+
+
+            <div id="myClubs"
+                 class="dashboard-list">
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- NOTIFICATIONS -->
+
+    <section class="dashboard-panel notification-panel">
+
+        <div class="panel-header">
+
+            <div>
+
+                <h2>
+                    Recent Notifications
+                </h2>
+
+                <p>
+                    Important campus updates
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="notification">
+
+            <span>
+                🔥
+            </span>
+
+            <div>
+
+                <strong>
+                    Hackathon registration is open
+                </strong>
+
+                <p>
+                    Form your team and register before
+                    September 8.
+                </p>
+
+            </div>
+
+            <small>
+                2h
+            </small>
+
+        </div>
+
+
+        <div class="notification">
+
+            <span>
+                📚
+            </span>
+
+            <div>
+
+                <strong>
+                    Library timing extended
+                </strong>
+
+                <p>
+                    Central library is open until 9 PM.
+                </p>
+
+            </div>
+
+            <small>
+                5h
+            </small>
+
+        </div>
+
+
+        <div class="notification">
+
+            <span>
+                🏆
+            </span>
+
+            <div>
+
+                <strong>
+                    Sports meet applications
+                </strong>
+
+                <p>
+                    Applications are now available.
+                </p>
+
+            </div>
+
+            <small>
+                1d
+            </small>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<footer>
+
+    <div class="copyright">
+
+        © 2026 CampusConnect ·
+        Student Website Project
+
+    </div>
+
+</footer>
+
+
+
+<script>
+
+async function loadDashboard() {
+
+    const student =
+        localStorage.getItem("campusStudent") || "Student";
+
+    document.getElementById("studentName")
+        .textContent = student;
+
+    try {
+
+        const q = query(
+            collection(db, "eventRegistrations"),
+            where("studentName", "==", student)
+        );
+
+        const snapshot = await getDocs(q);
+
+        const events = [];
+
+        snapshot.forEach((doc) => {
+            events.push(doc.data().eventName);
+        });
+
+        document.getElementById("eventCount")
+            .textContent = events.length;
+
+        const eventContainer =
+            document.getElementById("myEvents");
+
+        if (events.length === 0) {
+
+            eventContainer.innerHTML = `
+                <div class="empty-state">
+                    📅
+                    <p>No events registered yet.</p>
+                    <a href="index.html#events">
+                        Explore Events →
+                    </a>
+                </div>
+            `;
+
+        } else {
+
+            eventContainer.innerHTML =
+                events.map(event => `
+                    <div class="dashboard-item">
+
+                        <div class="item-icon">
+                            📅
+                        </div>
+
+                        <div>
+                            <strong>${event}</strong>
+                            <small>
+                                Registration confirmed
+                            </small>
+                        </div>
+
+                        <span>✓</span>
+
+                    </div>
+                `).join("");
+        }
+
+    } catch (error) {
+
+        console.error("Firebase error:", error);
+
+        showDashboardError();
+
+    }
+
+      
+
+function showDashboardError() {
+
+    const eventContainer =
+        document.getElementById("myEvents");
+
+    eventContainer.innerHTML = `
+        <div class="empty-state">
+            ⚠️
+            <p>Unable to load events from Firebase.</p>
+            <a href="index.html#events">
+                Back to Events →
+            </a>
+        </div>
+    `;
+}
+function logoutStudent() {
+
+    localStorage.removeItem(
+        "campusStudent"
+    );
+
+    window.location.href =
+        "index.html";
+
+}
+
+
+loadDashboard();
+
+<script type="module">
+
+import { collection, getDocs, query, where }
+from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+
+import { db } from "./firebase.js";
+
+function loadDashboard() {
+
+
+</body>
+
+</html>
